@@ -2,7 +2,7 @@
 <html lang="ru" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Walk Is Fun</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/main.css">
@@ -16,39 +16,40 @@
 <body>
 
 <header class="Header" role="banner">
-    <div class="Header-Content">
-        <h1 class="Header-Logo" title="Walk is fun" style="padding-top: 5%">WalkIsFun</h1>
+    <div class="Header-Content" style="padding-top: 5%">
+        <h1 class="Header-Logo" title="Walk is fun">WalkIsFun</h1>
     </div>
 </header>
 
 <div class="container-fluid text-left">
     <div class="container content">
         <div class="row">
-            <div class=" col-sm-4">
+            <div class="col-md-4">
             </div>
-            <div class=" col-sm-4 text-center ">
+            <div class="col-md-4 col-sm-12 text-center ">
                 <h2 class="slogan text-center">Строим самые классные маршруты</h2>
-                <p>Добро пожаловать на лучший сервис построение интересных именно Вам маршрутов!
+                <p style="padding-top: 10%">Добро пожаловать на лучший сервис построение интересных именно Вам
+                    маршрутов!
                     Всего один клик отделяет Вас от незабывыаемого путешествия по новому городу.
                     А может быть вы хотите получше узнать место, в котором живете уже очень давно, но все никак не
                     находили времени чтобы выбраться на прогулку?
                     Хватит ждать, жмите на кнопку и скорее в путь!</p>
-                <h3>
-                    <a class="vkAutorise" href="/login/vkontakte" title="Войти через ВК"><i class="fa fa-vk"
-                                                                                            aria-hidden="true"></i>Войти
-                        через VK</a>
+                <h3 style="padding-top: 15%">
+                    <a class="vkAutorise vkButton" href="/login/vkontakte" title="Войти через ВК">
+                        <i class="fa fa-vk" aria-hidden="true"></i>
+                        Войти через VK
+                    </a>
                 </h3>
             </div>
-        </div>
-        <div class="col-sm-4">
+            <div class="col-md-4">
+            </div>
         </div>
     </div>
 </div>
-</div>
-
 <footer class="text-center">
     <p>Walk Is Fun, 2017</p>
 </footer>
+</div>
 
 <!--JS section-->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
