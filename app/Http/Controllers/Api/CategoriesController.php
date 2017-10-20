@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Route\PlaceCategory;
 use Illuminate\Http\Request;
 
 class CategoriesController extends CoreApiMethodController
 {
     public function get(Request $request)
     {
-        $requiredParams = [];
+        $categories = PlaceCategory::all();
 
-        $requiredFields = $this->bindRequiredFields($requiredParams, $request);
-
-        return $this->successReturn(['ok']); // TODO Implement this
+        return $this->successReturn([$categories]);
     }
 }
