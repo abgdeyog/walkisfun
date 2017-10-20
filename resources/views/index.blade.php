@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -33,8 +33,8 @@
                     А может быть вы хотите получше узнать место, в котором живете уже очень давно, но все никак не
                     находили времени чтобы выбраться на прогулку?
                     Хватит ждать, жмите на кнопку и скорее в путь!</p>
-                <a class="vkAutorise" href="/login/vkontakte" title="Войти через ВК"><i class="fa fa-vk"
-                                                                                        aria-hidden="true"></i>
+                <a class="vkAutorise" href="/login/vkontakte" title="Войти через ВК">
+                    <i class="fa fa-vk" aria-hidden="true"></i>
                     <h3>Войти через VK</h3>
                 </a>
             </div>
