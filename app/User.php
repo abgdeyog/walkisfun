@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'token'
     ];
 
     /**
@@ -24,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'token'
     ];
 
     public static function createBySocialProvider($providerUser)
@@ -33,6 +33,7 @@ class User extends Authenticatable
             'email' => $providerUser->getEmail(),
             'username' => $providerUser->getNickname(),
             'name' => $providerUser->getName(),
+            'token' => $providerUser->token,
         ]);
     }
 }
