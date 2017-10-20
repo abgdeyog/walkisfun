@@ -35,4 +35,11 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    // TODO Fix it after adding VK
+    'github' => [
+        'client_id' => 'your-github-app-id',
+        'client_secret' => 'your-github-app-secret',
+        'redirect' => 'http://your-callback-url',
+    ],
+
 ];
