@@ -33,9 +33,10 @@
                     А может быть вы хотите получше узнать место, в котором живете уже очень давно, но все никак не
                     находили времени чтобы выбраться на прогулку?
                     Хватит ждать, жмите на кнопку и скорее в путь!</p>
-                <button class="vkAutorise" id="vkAutorise"><i class="fa fa-vk" aria-hidden="true"></i>
+                <a class="vkAutorise" href="/login/vkontakte" title="Войти через ВК"><i class="fa fa-vk"
+                                                                                        aria-hidden="true"></i>
                     <h3>Войти через VK</h3>
-                </button>
+                </a>
             </div>
         </div>
         <div class="col-sm-4">
