@@ -18,6 +18,15 @@ class ApiController extends \App\Http\Controllers\Controller
             case 'places.suggest':
                 $controller = new SuggestionController();
                 return $controller->serve($request);
+            case 'route.build':
+                $controller = new RouteController();
+                return $controller->build($request);
+            case 'route.estimateTime':
+                $controller = new RouteController();
+                return $controller->estimateTime($request);
+            case 'categories.get':
+                $controller = new CategoriesController();
+                return $controller->get($request);
             default:
                 throw new UnknownMethodException();
         }
