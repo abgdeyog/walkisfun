@@ -43,7 +43,7 @@ class LoginController extends Controller
      */
     public function redirectToProvider()
     {
-        return Socialite::driver('github')->redirect(); // TODO Fix it after adding VK
+        //return Socialite::driver('github')->redirect(); // TODO Fix it after adding VK
     }
 
     /**
@@ -53,7 +53,7 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('github')->user(); // TODO Fix it after adding VK
+        //$user = Socialite::driver('github')->user(); // TODO Fix it after adding VK
 
         // $user->token;
     }

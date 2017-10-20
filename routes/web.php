@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('login/github', 'Auth\LoginController@redirectToProvider'); // TODO Fix it after adding VK
-Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback'); // TODO Fix it after adding VK
+Route::get('/login/{provider}', 'SocialController@login');
+Route::get('/login/callback/{provider}', 'SocialController@callback');
 
 Route::get('/home', 'HomeController@index')->name('home');
