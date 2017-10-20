@@ -17,3 +17,5 @@ Route::get('/login/{provider}', 'SocialController@login');
 Route::get('/login/callback/{provider}', 'SocialController@callback');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/api/method/{method}', 'Api\ApiController@serve');
