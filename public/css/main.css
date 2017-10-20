@@ -47,7 +47,7 @@ p {
     /*padding-top: 10%;*/
 }
 
-button.vkAutorise {
+a.vkAutorise {
     color: #5E81A8;
     background-color: transparent;
     border: 1px #5E81A8;
@@ -57,11 +57,11 @@ button.vkAutorise {
     padding-left: 10%;
 }
 
-i.fa-vk {
-    font-size: 50px;
+a.vkAutorise i.fa-vk {
+    margin-right: 10px;
 }
 
-button.vkAutorise:hover {
+a.vkAutorise:hover {
     border-color: #5E81A8;
     border: 1px;
     transition: 1s;
