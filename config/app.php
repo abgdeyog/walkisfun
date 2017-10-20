@@ -179,6 +179,8 @@ return [
 
         SocialiteProviders\Manager\ServiceProvider::class,
 
+        SKAgarwal\GoogleApi\ServiceProvider::class,
+
     ],
 
     /*
@@ -229,6 +231,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
+        'GooglePlaces' => SKAgarwal\GoogleApi\Facade::class,
     ],
 
 ];
