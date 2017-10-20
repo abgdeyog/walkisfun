@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'IndexController@index')->name('login');
+
+Route::get('/login/{provider}', 'SocialController@login');
+Route::get('/login/callback/{provider}', 'SocialController@callback');
+
+Route::get('/home', 'HomeController@index')->name('home');
