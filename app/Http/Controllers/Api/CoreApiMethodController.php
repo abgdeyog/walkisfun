@@ -18,7 +18,8 @@ class CoreApiMethodController extends \App\Http\Controllers\Controller
         foreach ($requiredFields as $fieldName) {
             if (!isset($request->$fieldName))
                 throw new WrongParamsException();
-            $fields[$fieldName] = $request->$fieldName;
+            $fields[$fieldName] = explode(",", $request->get($fieldName));
+            if (count($fields[$fieldName]) == 1) $fields[$fieldName] = $fields[$fieldName][0];
         }
         return $fields;
     }
@@ -29,7 +30,8 @@ class CoreApiMethodController extends \App\Http\Controllers\Controller
         $fields = [];
         foreach ($possibleFields as $fieldName) {
             if (isset($request->$fieldName)) {
-                $fields[$fieldName] = $request->$fieldName;
+                $fields[$fieldName] = explode(",", $request->get($fieldName));
+                if (count($fields[$fieldName]) == 1) $fields[$fieldName] = $fields[$fieldName][0];
             } elseif (isset($defaultValues[$fieldName])) {
                 $fields[$fieldName] = $defaultValues[$fieldName];
             }
