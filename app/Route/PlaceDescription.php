@@ -1,6 +1,10 @@
 <?php
 
-class PlaceDescription
+namespace App\Route;
+
+use Illuminate\Database\Eloquent\Model;
+
+class PlaceDescription extends Model
 {
     private $description;
     private $smallDescription;
@@ -28,5 +32,10 @@ class PlaceDescription
     public function setTitle(string& $title)
     {
         $this->title = $title;
+    }
+
+    public function place()
+    {
+        return $this->hasOne('App\Route\Place');
     }
 }
