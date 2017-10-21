@@ -36,6 +36,6 @@ class PlaceDescription extends Model
 
     public function place()
     {
-        return $this->hasOne('App\Route\Place');
+        return $this->belongsTo('App\Route\Place');
     }
 }

@@ -2,9 +2,10 @@
 
 namespace App\Route;
 
-class Place
-{
+use Illuminate\Database\Eloquent\Model;
 
+class Place extends Model
+{
     private $location;
     private $name;
     private $weight;
@@ -34,6 +35,6 @@ class Place
 
     public function category()
     {
-        return $this->hasOne('App\Route\PlaceCategory');
+        return $this->belongsTo('App\Route\PlaceCategory');
     }
 }
