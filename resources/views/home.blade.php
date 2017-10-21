@@ -34,6 +34,7 @@
                     <!-- Main Form -->
                     <div class="positions-form">
                         <form id="pos-form" class="text-left" action="/route" method="post">
+                            {{ csrf_field() }}
                             <div class="main-pos-form step-1">
                                 <div class="positions-group">
                                     <div class="form-group">
