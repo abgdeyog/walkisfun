@@ -63,11 +63,23 @@ a.vkAutorise i.fa-vk {
 }
 
 a.vkButton {
+    border: 2px solid #5E81A8;
+}
+
+a.finish {
+    border: 2px solid #4abdac;
+}
+
+a.vkButton, a.finish {
     font-size: 20px;
     text-decoration: none;
     padding: 10px 25px 10px 25px;
-    border: 2px solid #5E81A8;
     border-radius: 25px;
+}
+
+a.finish:hover {
+    color: #f7f7ff;
+    background-color: #4abdac;
 }
 
 a.vkButton:hover {
@@ -207,20 +219,13 @@ footer {
     height: 100%;
 }
 
-.place .picture .description {
+.place .description {
     height: inherit;
 }
 
-.place .picture {
-    float: left;
-}
 
 .map-wrapper, .places-list-wrapper {
     height: 100vh;
-}
-
-#map {
-    height: 100%;
 }
 
 .form-page .positions-form .step-2, .form-page .positions-form .step-3 {
@@ -240,4 +245,67 @@ footer {
 .positions-form .category-wrapper input, .positions-form .time-wrapper input {
     margin-right: 5px;
     outline: none;
+}
+
+.places-list-wrapper {
+    padding-top: 20px;
+}
+
+.placesList {
+    height: 100%;
+}
+
+.place .description {
+    height: inherit;
+}
+
+.map-wrapper, .places-list-wrapper {
+    height: 100vh;
+}
+
+#map {
+    height: 100%;
+}
+
+.fa-thumbs-up {
+    padding-right: 20px;
+}
+
+.fa-thumbs-down:hover, .fa-thumbs-up:hover {
+    transition: 0.5s;
+    font-size: 40px;
+}
+
+.places-grade-wrapper {
+    padding-top: 20px;
+}
+
+.gradePlace .gradePicture .gradeDescription {
+    height: inherit;
+}
+
+.gradePlace .gradePicture {
+    float: left;
+}
+
+.gradePlace .gradeButtons {
+    font-size: 35px;
+    float: right;
+}
+
+.gradePlace, .place {
+    width: 100%;
+    height: 100px;
+    border: 0;
+    box-shadow: 0 0 0;
+    background: #ffffff;
+    color: #60656f;
+    border-radius: 8px;
+    padding: 10px 20px;
+}
+
+img {
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
 }
