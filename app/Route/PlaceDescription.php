@@ -1,14 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: abgdeyog
- * Date: 20.10.17
- * Time: 20:11
- */
 
 namespace App\Route;
 
-class PlaceDescription
+use Illuminate\Database\Eloquent\Model;
+
+class PlaceDescription extends Model
 {
     private $description;
     private $smallDescription;
@@ -36,5 +32,10 @@ class PlaceDescription
     public function setTitle(string& $title)
     {
         $this->title = $title;
+    }
+
+    public function place()
+    {
+        return $this->belongsTo('App\Route\Place');
     }
 }

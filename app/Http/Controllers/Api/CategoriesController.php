@@ -11,6 +11,6 @@ class CategoriesController extends CoreApiMethodController
     {
         $categories = PlaceCategory::all();
 
-        return $this->successReturn([$categories]);
+        return $this->successReturn($categories);
     }
 }

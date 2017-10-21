@@ -2,9 +2,10 @@
 
 namespace App\Route;
 
-class Place
-{
+use Illuminate\Database\Eloquent\Model;
 
+class Place extends Model
+{
     private $gpsX;
     private $gpsY;
     private $placeId;
@@ -30,7 +31,12 @@ class Place
 
     public function description()
     {
-        return $this->hasOne('App\PlaceDescription');
+        return $this->hasOne('App\Route\PlaceDescription');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo('App\Route\PlaceCategory');
     }
 
     public function getX()

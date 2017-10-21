@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/css/easy-autocomplete.css"/>
+    <link rel="stylesheet" href="/css/easy-autocomplete.themes.css"/>
+    <link rel="stylesheet" href="/css/main.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
@@ -13,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body class="form-page">
 
 <header class="Header" role="banner">
     <div class="Header-Content" style="padding-top: 25px;">
@@ -31,20 +33,58 @@
                     <div class="logo">Начинаем стоить маршрут</div>
                     <!-- Main Form -->
                     <div class="positions-form">
-                        <form id="pos-form" class="text-left">
-                            <div class="main-pos-form">
+                        <form id="pos-form" class="text-left" action="/route" method="post">
+                            {{ csrf_field() }}
+                            <div class="main-pos-form step-1">
                                 <div class="positions-group">
                                     <div class="form-group">
+                                        <input type="hidden" id="start_place_id" name="start_place_id">
                                         <input type="text" class="form-control" id="start_place" name="start_place"
-                                               placeholder="Начальная позиция">
+                                               placeholder="Начальная позиция" required>
                                     </div>
                                     <div class="form-group">
+                                        <input type="hidden" id="end_place_id" name="end_place_id">
                                         <input type="text" class="form-control" id="end_place" name="end_place"
-                                               placeholder="Конечная позиция">
+                                               placeholder="Конечная позиция" required>
                                     </div>
                                 </div>
-                                <button type="submit" id="to-next-1" class="login-button to-next"><i
-                                        class="fa fa-chevron-right"></i></button>
+                                <button id="to-next-1" class="login-button to-next rotate-button"><i
+                                            class="fa fa-chevron-right"></i></button>
+                            </div>
+                            <div class="main-pos-form step-2">
+                                <div class="positions-group">
+                                    <div class="form-group categories-checkbox " id="categories-checkbox">
+                                    </div>
+                                </div>
+                                <button type="submit" id="to-next-2" class="login-button to-next rotate-button"><i
+                                            class="fa fa-chevron-right"></i></button>
+                            </div>
+
+                            <div class="main-pos-form step-3">
+                                <div class="positions-group">
+                                    <div class="form-group time-checkbox" id="time-checkbox">
+                                        <div class="time-wrapper">
+                                            <input type="radio" id="30" value="30" name="required-time" checked
+                                                   required>
+                                            <label for="30">30 минут</label>
+                                        </div>
+                                        <div class="time-wrapper">
+                                            <input type="radio" id="60" value="60" name="required-time">
+                                            <label for="60">1 час</label>
+                                        </div>
+                                        <div class="time-wrapper">
+                                            <input type="radio" id="120" value="120" name="required-time">
+                                            <label for="120">2 часа</label>
+                                        </div>
+                                        <div class="time-wrapper">
+                                            <input type="radio" id="180" value="180" name="required-time">
+                                            <label for="180">3 часа</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" id="to-next-3"
+                                        class="login-button to-next rotate-button submit-button"><i
+                                            class="fa fa-chevron-right"></i></button>
                             </div>
                         </form>
                     </div>
@@ -64,7 +104,10 @@
 
 <!--JS section-->
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="/js/jquery.easy-autocomplete.js"
+        crossorigin="anonymous"></script>
+<script src="/js/home.js"
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
         integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
@@ -73,4 +116,4 @@
         integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
 </body>
-        </html>
+</html>
