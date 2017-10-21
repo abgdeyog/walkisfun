@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body class="result-page">
 
 <div class="container-fluid places-wrapper">
     <div class="row">
@@ -34,14 +34,15 @@
             <div class="place" style="width: 100%; height: 100px; ">
                 <span><div class="description inline">Description</div></span>
             </div>
+            <a class="finishWalk" href="" title="Закончить">Закончить</a>
         </div>
     </div>
 </div>
 
 
 <!--JS section-->
-<script src="Main.js"></script>
-<script src="jquery.easy-autocomplete.min.js"></script>
+<script src="/js/home.js"></script>
+<script src="/js/jquery.easy-autocomplete.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"

@@ -69,10 +69,12 @@ $(document).ready(function () {
 
             requestDelay: 300
         };
-
         $("#start_place").easyAutocomplete(startOptions);
         $("#end_place").easyAutocomplete(endOptions);
     }
 
-
+    // if ($('.result-page').length > 0) {
+    //     var address = "https://walkisfun.com/api/method/route.build?from="+from+"&to="+to+"&time="+time+"&categories="+cats;
+    //     alert(address);
+    // }
 });
