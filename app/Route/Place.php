@@ -14,7 +14,7 @@ class Place extends Model
     public function Place($placeId = '')
     {
         $this->placeId = $placeId;
-        if ($placeId != '') $this->fetchLocation();//todo
+        if ($placeId != '') $this->fetchLocation();
     }
 
     public function setWeight($weight)
