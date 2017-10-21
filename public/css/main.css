@@ -96,11 +96,22 @@ footer {
 .positions-form {
     max-width: 300px;
     border-radius: 5px;
-    display: inline-block;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .main-pos-form {
     position: relative;
+    margin: 10px 0;
+}
+
+.main-pos-form:first-of-type {
+    margin-top: 0;
+}
+
+.main-pos-form:last-of-type {
+    margin-bottom: 0;
 }
 
 .positions-form .form-control {
@@ -110,7 +121,7 @@ footer {
     background: transparent;
     color: #555555;
     padding: 7px 0;
-    font-weight: bold;
+    /*font-weight: bold;*/
     height: auto;
 }
 
@@ -160,11 +171,20 @@ footer {
     border: 5px solid #efefef;
     border-radius: 50%;
     transition: all ease-in-out 500ms;
+    outline: none;
 }
 
-.positions-form .login-button:hover {
+.positions-form .rotate-button:hover {
     color: #555555;
     transform: rotate(450deg);
+}
+
+.positions-form .rotated {
+    transform: rotate(450deg);
+}
+
+.positions-form .submit-button:hover {
+    transform: rotate(360deg);
 }
 
 .positions-form .login-button.clicked {
@@ -201,4 +221,22 @@ footer {
 
 #map {
     height: 100%;
+
+.form-page .positions-form .step-2, .form-page .positions-form .step-3 {
+    display: none;
+}
+
+.positions-form .category-wrapper {
+    padding: 5px 10px 5px 0;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.positions-form .category-wrapper label {
+    font-weight: 300;
+}
+
+.positions-form .category-wrapper input, .positions-form .time-wrapper input {
+    margin-right: 5px;
+    outline: none;
 }
