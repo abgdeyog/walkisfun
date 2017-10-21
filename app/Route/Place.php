@@ -29,6 +29,11 @@ class Place
 
     public function description()
     {
-        return $this->hasOne('App\PlaceDescription');
+        return $this->hasOne('App\Route\PlaceDescription');
+    }
+
+    public function category()
+    {
+        return $this->hasOne('App\Route\PlaceCategory');
     }
 }

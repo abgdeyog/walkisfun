@@ -27,6 +27,12 @@ class ApiController extends \App\Http\Controllers\Controller
             case 'categories.get':
                 $controller = new CategoriesController();
                 return $controller->get($request);
+            case 'place.like':
+                $controller = new PlaceController();
+                return $controller->like($request);
+            case 'place.dislike':
+                $controller = new PlaceController();
+                return $controller->dislike($request);
             default:
                 throw new UnknownMethodException();
         }
