@@ -66,19 +66,19 @@ a.vkButton {
     border: 2px solid #5E81A8;
 }
 
-a.finish, a.thumbs-up, a.thumbs-down {
+a.finish, a.thumbs-up, a.thumbs-down, a.finishWalk {
     border: 2px solid #4abdac;
     color: #4abdac;
 }
 
-a.vkButton, a.finish, a.thumbs-down, a.thumbs-up {
+a.vkButton, a.finish, a.thumbs-down, a.thumbs-up, a.finishWalk {
     font-size: 20px;
     text-decoration: none;
     padding: 10px 25px 10px 25px;
     border-radius: 25px;
 }
 
-a.finish:hover, .thumbs-up:hover, a.thumbs-down:hover {
+a.finish:hover, .thumbs-up:hover, a.thumbs-down:hover, a.finishWalk:hover {
     color: #f7f7ff;
     background-color: #4abdac;
 }

@@ -34,7 +34,7 @@
             <div class="place" style="width: 100%; height: 100px; ">
                 <span><div class="description inline">Description</div></span>
             </div>
-            <a class="finishWalk" href="" title="Закончить">Закончить</a>
+            <a class="finishWalk" href="" title="Завершить маршрут">Завершить маршрут</a>
         </div>
     </div>
 </div>
