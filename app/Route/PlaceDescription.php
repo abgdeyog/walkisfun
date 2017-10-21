@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: abgdeyog
- * Date: 20.10.17
- * Time: 20:11
- */
+
 class PlaceDescription
 {
     private $description;
