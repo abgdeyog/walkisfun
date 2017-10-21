@@ -5,6 +5,9 @@
  * Date: 20.10.17
  * Time: 20:11
  */
+
+namespace App\Route;
+
 class PlaceDescription
 {
     private $description;

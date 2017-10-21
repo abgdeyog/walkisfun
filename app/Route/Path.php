@@ -4,6 +4,6 @@ namespace App\Route;
 
 class Path
 {
-    public $x;
-    public $y;
+    public $from;
+    public $to;
 }

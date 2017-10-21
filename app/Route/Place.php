@@ -5,16 +5,17 @@ namespace App\Route;
 class Place
 {
 
-    private $location;
-    private $name;
+    private $x;
+    private $y;
+    private $placeId;
     private $weight;
 
-    protected $fillable = ['location', 'name'];
+    protected $fillable = ['location', 'placeId', 'weight'];
 
-    public function __construct($name, $coordinateX, $coordinateY)
+    public function __construct($placeId)
     {
-        $this->name = $name;
-        $this->location = new Location($coordinateX, $coordinateY);
+        $this->placeId = $placeId;
+        $this->fetchLocation();//todo
     }
 
     public function setWeight($weight)
@@ -30,5 +31,25 @@ class Place
     public function description()
     {
         return $this->hasOne('App\PlaceDescription');
+    }
+
+    public function getX()
+    {
+        return $this->x;
+    }
+
+    public function getY()
+    {
+        return $this->y;
+    }
+
+    public function getPlaceId()
+    {
+        return $this->placeId;
+    }
+
+    public function getWeight()
+    {
+        return $this->weight;
     }
 }
