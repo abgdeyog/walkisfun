@@ -49,8 +49,6 @@ class RouteCreator
                 $segmentLength = $this->getDistance($this->path[$j], $this->path[$j + 1]);
                 for ($k = 0; $k < $n; $k++)
                 {
-                    //var_dump($this->places[$k]);
-                    //exit;
                     //array_key_exists($map, $this->places[$k]->getId())
                     if (!isset($map[$this->places[$k]->getPlaceId()]))
                     {
