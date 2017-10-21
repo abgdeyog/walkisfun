@@ -181,6 +181,8 @@ return [
 
         SKAgarwal\GoogleApi\ServiceProvider::class,
 
+        GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
+
     ],
 
     /*
@@ -233,6 +235,8 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
         'GooglePlaces' => SKAgarwal\GoogleApi\Facade::class,
+
+        'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
     ],
 
 ];
