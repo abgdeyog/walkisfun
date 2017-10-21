@@ -23,21 +23,15 @@
             <div id="map"></div>
         </div>
         <div class="col-md-5 col-sm-12 places-list-wrapper">
-            <!--<header class="Header" role="banner">-->
-            <!--<div class="Header-Content" style="padding-top: 25px;">-->
-            <!--<h1 class="Header-Logo" title="Walk is fun">WalkIsFun</h1>-->
-            <!--</div>-->
-            <!--</header>-->
             <div class="place" style="width: 100%; height: 100px; ">
-                <span><div class="picture inline" style="width: 20%; height: inherit">Picture</div></span>
                 <span><div class="description inline">Description</div></span>
             </div>
+            <hr/>
             <div class="place" style="width: 100%; height: 100px; ">
-                <span><div class="picture inline" style="width: 20%; height: inherit">Picture</div></span>
                 <span><div class="description inline">Description</div></span>
             </div>
+            <hr/>
             <div class="place" style="width: 100%; height: 100px; ">
-                <span><div class="picture inline" style="width: 20%; height: inherit">Picture</div></span>
                 <span><div class="description inline">Description</div></span>
             </div>
         </div>
