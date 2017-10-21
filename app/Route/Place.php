@@ -6,17 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Place extends Model
 {
-    private $gpsX;
-    private $gpsY;
     private $placeId;
     private $weight;
 
-    protected $fillable = ['location', 'placeId', 'weight'];
+    protected $fillable = ['gpsX', 'gpsY', 'placeId'];
 
-    public function __construct($placeId)
+    public function Place($placeId = '')
     {
         $this->placeId = $placeId;
-        $this->fetchLocation();//todo
+        if ($placeId != '') $this->fetchLocation();
     }
 
     public function setWeight($weight)
@@ -41,17 +39,17 @@ class Place extends Model
 
     public function getX()
     {
-        return $this->gpsX;
+        return $this->gps_x;
     }
 
     public function getY()
     {
-        return $this->gpsY;
+        return $this->gps_y;
     }
 
     public function getPlaceId()
     {
-        return $this->placeId;
+        return $this->place_id;
     }
 
     public function getWeight()
