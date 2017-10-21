@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="easy-autocomplete.min.css">
+    <link rel="stylesheet" href="easy-autocomplete.themes.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
@@ -28,19 +30,13 @@
             </div>
             <div class="col-md-4 col-sm-12 text-center form ">
                 <div class="text-center" style="padding:50px 0">
-                    <div class="logo">Начинаем стоить маршрут</div>
+                    <div class="logo">Выберете самые интересные для вас категории</div>
                     <!-- Main Form -->
                     <div class="positions-form">
                         <form id="pos-form" class="text-left">
                             <div class="main-pos-form">
                                 <div class="positions-group">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="start_place" name="start_place"
-                                               placeholder="Начальная позиция">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="end_place" name="end_place"
-                                               placeholder="Конечная позиция">
+                                    <div class="form-group categories-checkbox " id="categories-checkbox">
                                     </div>
                                 </div>
                                 <button type="submit" id="to-next-1" class="login-button to-next"><i
@@ -63,8 +59,9 @@
 
 
 <!--JS section-->
+<script src="/js/home.js"></script>
+<script src="jquery.easy-autocomplete.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
         integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
