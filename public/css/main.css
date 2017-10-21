@@ -98,6 +98,7 @@ footer {
     border-radius: 5px;
     display: block;
     width: 100%;
+    margin: 0 auto;
 }
 
 .main-pos-form {
