@@ -10,7 +10,7 @@ $(document).ready(function () {
                 $.each(data, function (key, value) {
                     var category = value.title;
                     var id = value.id;
-                    select.append('<div class="category-wrapper"><input type="checkbox" id="' + id + '" value="' + id + '" name="cats[]" checked><label for="' + id + '">' + category + '</label></div>');
+                    select.append('<div class="category-wrapper"><input type="checkbox" id="' + id + '" value="' + id + '" name="categories[]" checked><label for="' + id + '">' + category + '</label></div>');
                 });
             }
         });
@@ -38,8 +38,8 @@ $(document).ready(function () {
 
             list: {
                 onSelectItemEvent: function () {
-                    var value = $("#start_place").getSelectedItemData().place_id; //get the id associated with the selected value
-                    $("#start_place_id").val(value).trigger("change"); //copy it to the hidden field
+                    var value = $("#from").getSelectedItemData().place_id; //get the id associated with the selected value
+                    $("#from_id").val(value).trigger("change"); //copy it to the hidden field
                 }
             },
 
@@ -59,8 +59,8 @@ $(document).ready(function () {
 
             list: {
                 onSelectItemEvent: function () {
-                    var value = $("#end_place").getSelectedItemData().place_id; //get the id associated with the selected value
-                    $("#end_place_id").val(value).trigger("change"); //copy it to the hidden field
+                    var value = $("#to").getSelectedItemData().place_id; //get the id associated with the selected value
+                    $("#to_id").val(value).trigger("change"); //copy it to the hidden field
                 }
             },
 

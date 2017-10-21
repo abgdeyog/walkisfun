@@ -14,7 +14,7 @@ class PlaceController extends CoreApiMethodController
 
         $requiredFields = $this->bindRequiredFields($requiredParams, $request);
 
-        $vkWorker = new VKWorker(Auth::user()->token);
+        $vkWorker = new VKWorker(\Auth::user()->token);
         $subs = $vkWorker->usersGetSubscriptions();
 
         PlaceWeightWorker::like($requiredFields['placeID'], $subs);
@@ -28,7 +28,7 @@ class PlaceController extends CoreApiMethodController
 
         $requiredFields = $this->bindRequiredFields($requiredParams, $request);
 
-        $vkWorker = new VKWorker(Auth::user()->token);
+        $vkWorker = new VKWorker(\Auth::user()->token);
         $subs = $vkWorker->usersGetSubscriptions();
 
         PlaceWeightWorker::dislike($requiredFields['placeID'], $subs);

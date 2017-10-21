@@ -13,15 +13,26 @@ class VKWorker
 
     public function usersGetSubscriptions()
     {
-        $params = ['count' => 200];
+        $params = ['count' => 200, 'extended' => 1];
 
-        return $this->api('users.getSubscriptions', $params)->groups->items;
+        $items = $this->api('users.getSubscriptions', $params);
+
+        $subs = [];
+        foreach ($items as $item) {
+            if (isset($item->gid)) $subs[] = $item->gid;
+        }
+        return $subs;
     }
 
     private function api($methodName, $params)
     {
         $params['access_token'] = $this->accessToken;
-        $url = "https://api.vk.com/method/$methodName" . implode('&', $params);
+
+        $paramArray = [];
+        foreach ($params as $key => $param) {
+            $paramArray[] = $key . '=' . $param;
+        }
+        $url = "https://api.vk.com/method/{$methodName}?" . implode('&', $paramArray);
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -29,6 +40,8 @@ class VKWorker
         $output = curl_exec($ch);
         curl_close($ch);
 
-        return json_decode($output)->response;
+        $result = json_decode($output);
+
+        return $result->response;
     }
 }

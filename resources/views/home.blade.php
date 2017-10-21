@@ -38,13 +38,13 @@
                             <div class="main-pos-form step-1">
                                 <div class="positions-group">
                                     <div class="form-group">
-                                        <input type="hidden" id="start_place_id" name="start_place_id">
-                                        <input type="text" class="form-control" id="start_place" name="start_place"
+                                        <input type="hidden" id="from_id" name="from_id">
+                                        <input type="text" class="form-control" id="from" name="from"
                                                placeholder="Начальная позиция" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="hidden" id="end_place_id" name="end_place_id">
-                                        <input type="text" class="form-control" id="end_place" name="end_place"
+                                        <input type="hidden" id="to_id" name="to_id">
+                                        <input type="text" class="form-control" id="to" name="to"
                                                placeholder="Конечная позиция" required>
                                     </div>
                                 </div>
@@ -64,20 +64,20 @@
                                 <div class="positions-group">
                                     <div class="form-group time-checkbox" id="time-checkbox">
                                         <div class="time-wrapper">
-                                            <input type="radio" id="30" value="30" name="required-time" checked
+                                            <input type="radio" id="30" value="30" name="time" checked
                                                    required>
                                             <label for="30">30 минут</label>
                                         </div>
                                         <div class="time-wrapper">
-                                            <input type="radio" id="60" value="60" name="required-time">
+                                            <input type="radio" id="60" value="60" name="time">
                                             <label for="60">1 час</label>
                                         </div>
                                         <div class="time-wrapper">
-                                            <input type="radio" id="120" value="120" name="required-time">
+                                            <input type="radio" id="120" value="120" name="time">
                                             <label for="120">2 часа</label>
                                         </div>
                                         <div class="time-wrapper">
-                                            <input type="radio" id="180" value="180" name="required-time">
+                                            <input type="radio" id="180" value="180" name="time">
                                             <label for="180">3 часа</label>
                                         </div>
                                     </div>

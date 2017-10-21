@@ -15,8 +15,8 @@ class CreatePlacesTable extends Migration
     {
         Schema::create('places', function (Blueprint $table) {
             $table->increments('id');
-            $table->float('gps_x');
-            $table->float('gps_y');
+            $table->double('gps_x');
+            $table->double('gps_y');
             $table->string('place_id')->unique();
 
             $table->integer('place_category_id');
