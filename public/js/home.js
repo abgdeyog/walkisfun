@@ -4,11 +4,10 @@ $(document).ready(function () {
             type: "GET",
             url: "https://walkisfun.com/api/method/categories.get",
             success: function (data) {
-                data = JSON.parse(data)['response'];
+                data = data.response;
                 var select = $("#categories-checkbox");
 
                 $.each(data, function (key, value) {
-                    console.log(value);
                     var category = value.title;
                     var id = value.id;
                     select.append('<div class="category-wrapper"><input type="checkbox" id="' + id + '" value="' + id + '" name="cats[]" checked><label for="' + id + '">' + category + '</label></div>');
