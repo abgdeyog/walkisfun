@@ -2,9 +2,10 @@
 
 namespace App\Route;
 
+use App;
+
 class PlaceWeightWorker
 {
-    const WEIGHT_TO_ADD = 1;
 
     public static function like($placeID, $subs)
     {
@@ -12,11 +13,11 @@ class PlaceWeightWorker
             $placeWeight = PlaceWeight::all()->where('public_id', '=', $sub)->first();
 
             if ($placeWeight == null) {
-                $placeWeight = new PlaceWeight($placeID, $sub);
+                PlaceWeight::create(['place_id' => $placeID, 'public_id' => $sub, 'weight' => self::getLikeWeight()]);
+            } else {
+                $placeWeight->weight += self::getLikeWeight();
+                $placeWeight->save();
             }
-
-            $placeWeight->weight += PlaceWeightWorker::WEIGHT_TO_ADD;
-            $placeWeight->save();
         }
     }
 
@@ -26,11 +27,21 @@ class PlaceWeightWorker
             $placeWeight = PlaceWeight::all()->where('public_id', '=', $sub)->first();
 
             if ($placeWeight == null) {
-                $placeWeight = new PlaceWeight($placeID, $sub);
+                PlaceWeight::create(['place_id' => $placeID, 'public_id' => $sub, 'weight' => -self::getLikeWeight()]);
+            } else {
+                $placeWeight->weight -= self::getLikeWeight();
+                $placeWeight->save();
             }
-
-            $placeWeight->weight -= PlaceWeightWorker::WEIGHT_TO_ADD;
-            $placeWeight->save();
         }
+    }
+
+    protected static function getLikeWeight()
+    {
+        return 2000000000 / log(self::getUserNumber()) / 100;
+    }
+
+    protected static function getUserNumber()
+    {
+        return App\User::count() < 1000 ? 1000 : App\User::count();
     }
 }

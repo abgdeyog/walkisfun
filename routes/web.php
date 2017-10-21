@@ -19,3 +19,5 @@ Route::get('/login/callback/{provider}', 'SocialController@callback');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/api/method/{method}', 'Api\ApiController@serve');
+
+Route::post('/route', 'HomeController@route')->name('route');
