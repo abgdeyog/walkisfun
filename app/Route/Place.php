@@ -2,19 +2,19 @@
 
 namespace App\Route;
 
-class Place
-{
+use Illuminate\Database\Eloquent\Model;
 
-    private $location;
-    private $name;
+class Place extends Model
+{
+    private $placeId;
     private $weight;
 
-    protected $fillable = ['location', 'name'];
+    protected $fillable = ['gpsX', 'gpsY', 'placeId'];
 
-    public function __construct($name, $coordinateX, $coordinateY)
+    public function Place($placeId = '')
     {
-        $this->name = $name;
-        $this->location = new Location($coordinateX, $coordinateY);
+        $this->placeId = $placeId;
+        if ($placeId != '') $this->fetchLocation();
     }
 
     public function setWeight($weight)
@@ -34,6 +34,26 @@ class Place
 
     public function category()
     {
-        return $this->hasOne('App\Route\PlaceCategory');
+        return $this->belongsTo('App\Route\PlaceCategory');
+    }
+
+    public function getX()
+    {
+        return $this->gps_x;
+    }
+
+    public function getY()
+    {
+        return $this->gps_y;
+    }
+
+    public function getPlaceId()
+    {
+        return $this->place_id;
+    }
+
+    public function getWeight()
+    {
+        return $this->weight;
     }
 }
