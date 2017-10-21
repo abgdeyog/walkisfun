@@ -5,8 +5,8 @@ namespace App\Route;
 class Place
 {
 
-    private $x;
-    private $y;
+    private $gpsX;
+    private $gpsY;
     private $placeId;
     private $weight;
 
@@ -35,12 +35,12 @@ class Place
 
     public function getX()
     {
-        return $this->x;
+        return $this->gpsX;
     }
 
     public function getY()
     {
-        return $this->y;
+        return $this->gpsY;
     }
 
     public function getPlaceId()
