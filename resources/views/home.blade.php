@@ -33,7 +33,8 @@
                     <div class="logo">Начинаем стоить маршрут</div>
                     <!-- Main Form -->
                     <div class="positions-form">
-                        <form id="pos-form" class="text-left">
+                        <form id="pos-form" class="text-left" action="/route" method="post">
+                            {{ csrf_field() }}
                             <div class="main-pos-form step-1">
                                 <div class="positions-group">
                                     <div class="form-group">
@@ -77,7 +78,7 @@
                                         </div>
                                         <div class="time-wrapper">
                                             <input type="radio" id="180" value="180" name="required-time">
-                                            <label for="120">3 часа</label>
+                                            <label for="180">3 часа</label>
                                         </div>
                                     </div>
                                 </div>

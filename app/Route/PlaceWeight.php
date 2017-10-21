@@ -2,7 +2,9 @@
 
 namespace App\Route;
 
-class PlaceWeight
+use Illuminate\Database\Eloquent\Model;
+
+class PlaceWeight extends Model
 {
     public $fillable = ['placeID', 'publicID', 'weight'];
 
