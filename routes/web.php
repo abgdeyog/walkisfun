@@ -20,4 +20,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/api/method/{method}', 'Api\ApiController@serve');
 
-Route::post('/route', 'HomeController@route')->name('route');
+Route::get('/route', 'HomeController@route')->name('route');
+Route::get('/finish', 'HomeController@finish')->name('finish');

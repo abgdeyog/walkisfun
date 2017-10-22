@@ -12,12 +12,12 @@ class PlaceDescription extends Model
 
     protected $fillable = ['description', 'smallDescription', 'title'];
 
-    public function __construct(string & $description, string & $smallDescription, string & $title)
+    /*public function __construct(string & $description, string & $smallDescription, string & $title)
     {
         $this->description = $description;
         $this->smallDescription = $smallDescription;
         $this->title = $title;
-    }
+    }*/
 
     public function setDescription(string& $description)
     {
