@@ -69,9 +69,93 @@ $(document).ready(function () {
             requestDelay: 300
         };
 
-        $("#start_place").easyAutocomplete(startOptions);
-        $("#end_place").easyAutocomplete(endOptions);
+        $("#from").easyAutocomplete(startOptions);
+        $("#to").easyAutocomplete(endOptions);
     }
 
 
+});
+
+function getQueryParams(name) {
+    qs = location.search;
+
+    var params = [];
+    var tokens;
+    var re = /[?&]?([^=]+)=([^&]*)/g;
+
+    while (tokens = re.exec(qs)) {
+        if (decodeURIComponent(tokens[1]) == name)
+            params.push(decodeURIComponent(tokens[2]));
+    }
+
+    return params;
+}
+
+function initialize() {
+    get = new URLSearchParams(window.location.search);
+
+    var cats = getQueryParams('categories[]').join(',');
+
+    $.ajax({
+        type: "GET",
+        url: "https://walkisfun.com/api/method/route.build?from=" + get.get('from_id') + "&to=" + get.get('to_id') + "&time=" + get.get('time') + "&categories=" + cats,
+        success: function (data) {
+            var from = data.response.route.from;
+            var to = data.response.route.to;
+
+            var places = data.response.places;
+
+            var placesIds = [];
+
+            $.each(places, function (key, value) {
+                var smallDescription = value.description.substr(0, 130);
+                smallDescription = smallDescription.substr(0, Math.min(smallDescription.length, smallDescription.lastIndexOf(" "))) + "...";
+
+
+                $('.places-list-wrapper').prepend('<div class="place">' +
+                    '                <span class="place-title">' + value.title + '</span>' +
+                    '<span class="smallDescription">' + smallDescription + '</span>' +
+                    '<span class="description">' + value.description + '</span>' +
+                    '            </div>');
+
+                placesIds.push(value.id);
+            });
+            $('.loading-icon-wrapper').hide();
+
+            var directionsService = new google.maps.DirectionsService;
+            var directionsDisplay = new google.maps.DirectionsRenderer;
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 13
+            });
+            directionsDisplay.setMap(map);
+
+            var waypts = [];
+            $.each(places, function (key, value) {
+                waypts.push({
+                    location: new google.maps.LatLng(value.gps_x, value.gps_y),
+                    stopover: true
+                });
+            });
+
+            directionsService.route({
+                origin: new google.maps.LatLng(from.gps_x, from.gps_y),
+                destination: new google.maps.LatLng(to.gps_x, to.gps_y),
+                waypoints: waypts,
+                optimizeWaypoints: false,
+                travelMode: 'WALKING'
+            }, function (response, status) {
+                if (status === 'OK') {
+                    directionsDisplay.setDirections(response);
+                    $(".finishWalk").attr("href", "/finish?places=" + placesIds.join(','));
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
+        }
+
+    });
+}
+
+$(document).on('click', '.place', function () {
+    $(this).addClass('selected');
 });
