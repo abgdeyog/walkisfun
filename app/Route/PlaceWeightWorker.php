@@ -10,10 +10,14 @@ class PlaceWeightWorker
     public static function like($placeID, $subs)
     {
         foreach ($subs as $sub) {
-            $placeWeight = PlaceWeight::all()->where('public_id', '=', $sub)->first();
+            $placeWeight = PlaceWeight::all()->where('public_id', '=', $sub)->where('place_id', '=', $placeID)->first();
 
             if ($placeWeight == null) {
-                PlaceWeight::create(['place_id' => $placeID, 'public_id' => $sub, 'weight' => self::getLikeWeight()]);
+                $placeWeight = new PlaceWeight();
+                $placeWeight->place_id = $placeID;
+                $placeWeight->public_id = $sub;
+                $placeWeight->weight = self::getLikeWeight();
+                $placeWeight->save();
             } else {
                 $placeWeight->weight += self::getLikeWeight();
                 $placeWeight->save();

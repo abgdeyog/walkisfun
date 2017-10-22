@@ -6,15 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Place extends Model
 {
-    private $placeId;
     private $weight;
 
-    protected $fillable = ['gpsX', 'gpsY', 'placeId'];
+    protected $fillable = ['gps_x', 'gps_y', 'place_id'];
 
     public function Place($placeId = '')
     {
-        $this->placeId = $placeId;
+        $this->place_id = $placeId;
         if ($placeId != '') $this->fetchLocation();
+    }
+
+    public function fetchLocation()
+    {
+        $locationResponse = \GooglePlaces::placeDetails($this->getPlaceId())['result']['geometry']['location'];
+
+        $this->setCoordinates($locationResponse['lat'], $locationResponse['lng']);
     }
 
     public function setWeight($weight)
@@ -24,7 +30,8 @@ class Place extends Model
 
     public function setCoordinates($x, $y)
     {
-        $this->location = new Location($x, $y);
+        $this->gps_x = $x;
+        $this->gps_y = $y;
     }
 
     public function description()
