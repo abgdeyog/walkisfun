@@ -271,15 +271,6 @@ footer {
     height: 100%;
 }
 
-.fa-thumbs-up {
-    padding-right: 20px;
-}
-
-.fa-thumbs-down:hover, .fa-thumbs-up:hover {
-    transition: 0.5s;
-    font-size: 40px;
-}
-
 .places-grade-wrapper {
     padding-top: 20px;
 }

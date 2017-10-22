@@ -13,7 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body class="result-page">
 
 <div class="container-fluid places-wrapper">
     <div class="row">
@@ -24,6 +24,7 @@
             <div class="finishWalk text-center">
                 <a class="finishWalk" href="" title="Завершить маршрут">Завершить маршрут</a>
             </div>
+            <a class="finishWalk" href="" title="Завершить маршрут">Завершить маршрут</a>
         </div>
     </div>
 </div>
@@ -36,7 +37,7 @@
 </div>
 
 
-<!--JS section-->
+
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
