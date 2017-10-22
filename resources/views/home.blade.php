@@ -30,22 +30,22 @@
             </div>
             <div class="col-md-4 col-sm-12 text-center form ">
                 <div class="text-center" style="padding:50px 0">
-                    <div class="logo">Начинаем стоить маршрут</div>
+                    <div class="logo">Начинаем стоить маршрут.<br/>Специально для тебя.</div>
                     <!-- Main Form -->
                     <div class="positions-form">
-                        <form id="pos-form" class="text-left" action="/route" method="post">
+                        <form id="pos-form" class="text-left" action="/route" method="get">
                             {{ csrf_field() }}
                             <div class="main-pos-form step-1">
                                 <div class="positions-group">
                                     <div class="form-group">
                                         <input type="hidden" id="from_id" name="from_id">
                                         <input type="text" class="form-control" id="from" name="from"
-                                               placeholder="Начальная позиция" required>
+                                               placeholder="Откуда начинаем?" required>
                                     </div>
                                     <div class="form-group">
                                         <input type="hidden" id="to_id" name="to_id">
                                         <input type="text" class="form-control" id="to" name="to"
-                                               placeholder="Конечная позиция" required>
+                                               placeholder="Куда идем?" required>
                                     </div>
                                 </div>
                                 <button id="to-next-1" class="login-button to-next rotate-button"><i
@@ -53,6 +53,9 @@
                             </div>
                             <div class="main-pos-form step-2">
                                 <div class="positions-group">
+                                    <div class="wrapper-header">
+                                        <span>Что планируешь посетить?</span>
+                                    </div>
                                     <div class="form-group categories-checkbox " id="categories-checkbox">
                                     </div>
                                 </div>
@@ -62,6 +65,9 @@
 
                             <div class="main-pos-form step-3">
                                 <div class="positions-group">
+                                    <div class="wrapper-header">
+                                        <span>Сколько свободного времени?</span>
+                                    </div>
                                     <div class="form-group time-checkbox" id="time-checkbox">
                                         <div class="time-wrapper">
                                             <input type="radio" id="30" value="30" name="time" checked
@@ -71,10 +77,6 @@
                                         <div class="time-wrapper">
                                             <input type="radio" id="60" value="60" name="time">
                                             <label for="60">1 час</label>
-                                        </div>
-                                        <div class="time-wrapper">
-                                            <input type="radio" id="120" value="120" name="time">
-                                            <label for="120">2 часа</label>
                                         </div>
                                         <div class="time-wrapper">
                                             <input type="radio" id="180" value="180" name="time">
