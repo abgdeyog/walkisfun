@@ -20,11 +20,11 @@
         <div class="col-md-7 col-sm-12 map-wrapper">
             <div id="map"></div>
         </div>
-        <div class="col-md-5 col-sm-12 places-list-wrapper">
+        <div class="col-md-5 col-sm-12 places-list-column">
+            <div class="places-list-wrapper"></div>
             <div class="finishWalk text-center">
                 <a class="finishWalk" href="" title="Завершить маршрут">Завершить маршрут</a>
             </div>
-            <a class="finishWalk" href="" title="Завершить маршрут">Завершить маршрут</a>
         </div>
     </div>
 </div>

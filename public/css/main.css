@@ -45,6 +45,11 @@ p {
     color: #60656f;
 }
 
+p b {
+    color: #4abdac;
+    font-weight: 600;
+}
+
 .col-sm-4 {
     /*padding-top: 10%;*/
 }
@@ -75,13 +80,17 @@ a.finish, a.thumbs-up, a.thumbs-down, a.finishWalk {
 a.vkButton, a.finish, a.thumbs-down, a.thumbs-up, a.finishWalk {
     font-size: 20px;
     text-decoration: none;
-    padding: 10px 25px 10px 25px;
+    padding: 5px 25px 5px 25px;
     border-radius: 25px;
 }
 
 a.finish:hover, .thumbs-up:hover, a.thumbs-down:hover, a.finishWalk:hover {
     color: #f7f7ff;
     background-color: #4abdac;
+}
+
+div.finishWalk {
+    padding-bottom: 40px;
 }
 
 a.vkButton:hover {
@@ -224,8 +233,13 @@ footer {
     height: inherit;
 }
 
-.map-wrapper, .places-list-wrapper {
+.map-wrapper, .places-list-column {
     height: 100vh;
+}
+
+.places-list-column {
+    max-height: 100vh;
+    overflow: scroll;
 }
 
 .places-list-wrapper {
@@ -263,7 +277,7 @@ footer {
     height: inherit;
 }
 
-.map-wrapper, .places-list-wrapper {
+.map-wrapper {
     height: 100vh;
 }
 
@@ -328,6 +342,7 @@ img {
 
 .place.selected {
     box-shadow: none;
+    cursor: initial;
 }
 
 .place.selected span.smallDescription {
@@ -369,6 +384,28 @@ img {
     transform: translateY(-50%);
     text-align: center;
     font-size: 26px;
+}
+
+.gradeButtons span {
+    font-size: 16px;
+    padding: 15px;
+}
+
+.finish-page .main-block {
+    padding: 50px 0
+}
+
+.finish-page .places-please {
+    padding: 20px;
+    background-color: #4abdac;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.finish-page .places-please p, .finish-page .places-please p b {
+    font-size: 17px;
+    color: #fff;
 }
 
 @media (max-width: 768px) {

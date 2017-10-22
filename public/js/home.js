@@ -73,6 +73,34 @@ $(document).ready(function () {
         $("#to").easyAutocomplete(endOptions);
     }
 
+    if ($('.finish-page').length > 0) {
+        get = new URLSearchParams(window.location.search);
+
+        var places = get.get('places').split(',');
+
+        $.each(places, function (key, value) {
+            $.ajax({
+                type: "GET",
+                url: "https://walkisfun.com/api/method/place.getTitle?id=" + value,
+                success: function (data) {
+                    data = data.response;
+
+                    $('.places-grade-wrapper').append('<div class="gradePlace">\n' +
+                        '                            <div class="row">\n' +
+                        '                            <div class="col-md-6 gradeDescription">\n' +
+                        '                                <h4 class="text-left">' + data + '</h4>\n' +
+                        '                            </div>\n' +
+                        '                            <div class="col-md-6 gradeButtons">\n' +
+                        '                                <a class="thumbs-up" href="/api/method/place.like?placeID=' + value + '" title="Да">Да</a>\n' +
+                        '                                <a class="thumbs-down" href="/api/method/place.dislike?placeID=' + value + '" title="Нет">Нет</a>\n' +
+                        '                            </div>\n' +
+                        '                            </div>\n' +
+                        '                        </div>');
+                }
+            });
+
+        });
+    }
 
 });
 
@@ -112,7 +140,7 @@ function initialize() {
                 smallDescription = smallDescription.substr(0, Math.min(smallDescription.length, smallDescription.lastIndexOf(" "))) + "...";
 
 
-                $('.places-list-wrapper').prepend('<div class="place">' +
+                $('.places-list-wrapper').append('<div class="place">' +
                     '                <span class="place-title">' + value.title + '</span>' +
                     '<span class="smallDescription">' + smallDescription + '</span>' +
                     '<span class="description">' + value.description + '</span>' +
@@ -158,4 +186,30 @@ function initialize() {
 
 $(document).on('click', '.place', function () {
     $(this).addClass('selected');
+});
+
+$(document).on('click', '.thumbs-up', function (e) {
+    e.preventDefault();
+    var url = $(this).attr('href');
+    $.ajax({
+        type: "GET",
+        url: url,
+        success: function (data) {
+        }
+    });
+
+    $(this).parent().html('<span>Спасибо за голос!</span>');
+});
+
+$(document).on('click', '.thumbs-down', function (e) {
+    e.preventDefault();
+    var url = $(this).attr('href');
+    $.ajax({
+        type: "GET",
+        url: url,
+        success: function (data) {
+        }
+    });
+
+    $(this).parent().html('<span>Обязательно исправимся!</span>');
 });
