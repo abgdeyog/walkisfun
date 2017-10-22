@@ -2,12 +2,27 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Route\Place;
+use App\Route\PlaceDescription;
 use App\Route\PlaceWeightWorker;
 use App\VKWorker;
 use Illuminate\Http\Request;
 
 class PlaceController extends CoreApiMethodController
 {
+    public function getTitle(Request $request)
+    {
+        $requiredParams = ['id'];
+
+        $requiredFields = $this->bindRequiredFields($requiredParams, $request);
+
+        $placeDescriptionId = Place::all()->where('id', '=', $requiredFields['id'])->first()->place_description_id;
+
+        $placeTitle = PlaceDescription::all()->where('place_id', '=', $placeDescriptionId)->first()->title;
+
+        return $this->successReturn($placeTitle);
+    }
+
     public function like(Request $request)
     {
         $requiredParams = ['placeID'];

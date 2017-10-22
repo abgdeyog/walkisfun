@@ -33,6 +33,9 @@ class ApiController extends \App\Http\Controllers\Controller
             case 'place.dislike':
                 $controller = new PlaceController();
                 return $controller->dislike($request);
+            case 'place.getTitle':
+                $controller = new PlaceController();
+                return $controller->getTitle($request);
             default:
                 throw new UnknownMethodException();
         }
