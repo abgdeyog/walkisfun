@@ -30,4 +30,9 @@ class HomeController extends Controller
     {
         return view('places');
     }
+
+    public function finish()
+    {
+        return view('finish');
+    }
 }

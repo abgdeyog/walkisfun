@@ -43,11 +43,54 @@ class RouteProcessor
             $placesArray[] = $place;
         }
 
-        $startPlace = Place::all()->where('place_id', '=', $this->startPointId)->first() ?? new Place($this->startPointId);
-        $endPlace = Place::all()->where('place_id', '=', $this->endPointId)->first() ?? new Place($this->endPointId);
+        $startPlace = Place::all()->where('place_id', '=', $this->startPointId)->first();
+        if ($startPlace == null) {
+            $startPlace = new Place();
+            $startPlace->place_id = $this->startPointId;
+            $startPlace->fetchLocation();
+        }
+
+        $endPlace = Place::all()->where('place_id', '=', $this->endPointId)->first();
+        if ($endPlace == null) {
+            $endPlace = new Place();
+            $endPlace->place_id = $this->endPointId;
+            $endPlace->fetchLocation();
+        }
 
         $route = new RouteCreator($startPlace, $endPlace, $placesArray, $this->routeTime);
-        return $route->getRoute();
+        $route = $route->getRoute();
+
+        //var_dump($this->rebuildRoute($route));
+
+        $response = $this->rebuildRoute($route);
+
+        foreach ($response['places'] as &$place) {
+            try {
+                $placeDescription = PlaceDescription::all()->where('place_id', '=', $place['place_description_id'])->first();
+                $place['title'] = $placeDescription->title;
+                $place['description'] = $placeDescription->description;
+            } catch (\Exception $e) {
+                unset($place);
+            }
+        }
+
+        return $response;
+    }
+
+    protected function rebuildRoute(array $route)
+    {
+        $waypoints = [];
+        $from = $route[0];
+        $n = count($route) - 1;
+        $to = $route[$n];
+
+        $places = [];
+        for ($i = 1; $i < $n; $i++) {
+            $waypoints[] = 'place_id:' . $route[$i]->getPlaceId();
+            $places[] = ['id' => $route[$i]->id, 'gps_x' => $route[$i]->gps_x, 'gps_y' => $route[$i]->gps_y, 'place_description_id' => $route[$i]->place_description_id];
+        }
+
+        return ['route' => ['from' => $from, 'to' => $to, 'waypoints' => $waypoints], 'places' => $places];
     }
 
     protected function getPlacesWithWeights()
@@ -69,7 +112,7 @@ class RouteProcessor
 
     protected function weightToFloat($placeWeight)
     {
-        return $placeWeight / PHP_INT_MAX + 1;
+        return $placeWeight / 2000000000 + 1;
     }
 
     protected function calculateWeightForPlace(Place &$place)

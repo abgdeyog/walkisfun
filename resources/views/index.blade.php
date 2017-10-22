@@ -13,7 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body class="front-page">
 
 <header class="Header" role="banner">
     <div class="Header-Content" style="padding-top: 5%">
@@ -27,14 +27,17 @@
             <div class="col-md-4">
             </div>
             <div class="col-md-4 col-sm-12 text-center ">
-                <h2 class="slogan text-center">Строим самые классные маршруты</h2>
-                <p style="padding-top: 10%">Добро пожаловать на лучший сервис построение интересных именно Вам
-                    маршрутов!
-                    Всего один клик отделяет Вас от незабывыаемого путешествия по новому городу.
-                    А может быть вы хотите получше узнать место, в котором живете уже очень давно, но все никак не
-                    находили времени чтобы выбраться на прогулку?
-                    Хватит ждать, жмите на кнопку и скорее в путь!</p>
-                <h3 style="padding-top: 15%">
+                <h2 class="slogan text-center">Маршруты, интересные тебе</h2>
+                <p><b>Чаще выбирайся на прогулки.<br/>Открывай неизведанные места.<br/>Заводи
+                        новые знакомства.</b></p>
+                <p>
+                    Получай персональные рекомендации и находи новые маршруты для прогулок, среди десятков
+                    достопримечательностей, парков и скверов, исторических места и уличных инсталляций.
+                </p>
+                <p>
+                    Открой все это прямо сейчас. Для начала достаточно войти через свой аккаунт ВКонтакте.
+                </p>
+                <h3 class="vk-login-button">
                     <a class="vkAutorise vkButton" href="/login/vkontakte" title="Войти через ВК">
                         <i class="fa fa-vk" aria-hidden="true"></i>
                         Войти через VK
@@ -62,4 +65,4 @@
         integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
 </body>
-        </html>
+</html>
